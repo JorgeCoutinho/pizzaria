@@ -14,13 +14,13 @@ class CreateProductController {
             throw new Error("error uploud file")
         } else {
 
-            const { originalname, filename } = req.file;
+            const { originalname, filename: banner } = req.file;
 
             const product = await createProductService.execute({
                 name,
                 price,
                 description,
-                banner: '',
+                banner,
                 category_id
             });
 
