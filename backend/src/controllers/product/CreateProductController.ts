@@ -1,24 +1,37 @@
 import { Request, Response } from "express";
 import { CreateProductService } from "../../services/product/CreateProductService";
+import axios from "axios";
 
-class CreateProductController{
-    async handle(req: Request, res: Response){
+class CreateProductController {
+    async handle(req: Request, res: Response) {
         const { name, price, description, category_id } = req.body;
 
-        let banner = '';
+
 
         const createProductService = new CreateProductService();
 
-        const product = await createProductService.execute({
-            name,
-            price,
-            description,
-            banner,
-            category_id
-        });
+        if (!req.file) {
+            throw new Error("error uploud file")
+        } else {
 
-        return res.json(product)
+            const { originalname, filename } = req.file;
 
+            const product = await createProductService.execute({
+                name,
+                price,
+                description,
+                banner: '',
+                category_id
+            });
+
+            return res.json(product)
+        }
+
+
+
+
+
+        axios
     }
 }
 
