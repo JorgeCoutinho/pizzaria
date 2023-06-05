@@ -26,8 +26,10 @@ router.post('/session', new AuthUserController().handle)
 router.get('/me', isAuthenticadet, new DetailUserController().handle)
 
 //-- ROTAS CATEGORY
+
 router.post('/category', isAuthenticadet, new CreateCategoryController().handle)
-router.get('/categgory', isAuthenticadet, new ListCategoryController().handle)
+
+router.get('/category', isAuthenticadet, new ListCategoryController().handle)
 
 //-ROTAS PRODUCT
 router.post('/product', isAuthenticadet, upload.single('file'), new CreateProductController().handle)
