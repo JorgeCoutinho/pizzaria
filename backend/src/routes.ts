@@ -9,6 +9,7 @@ import { CreateProductController } from "./controllers/product/CreateProductCont
 import { ListByCategoryController } from "./controllers/product/ListByCategoryController";
 import { CreateOrderController } from "./controllers/order/CreateOrderController";
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
+import { AddItemController } from "./controllers/order/AddItemController";
 import { isAuthenticadet } from "./middleware/isAuthenticadet";
 
 import uploadConfig from './config/multer';
@@ -42,6 +43,9 @@ router.get('/category/product', isAuthenticadet, new ListByCategoryController().
 router.post('/order', isAuthenticadet, new CreateOrderController().handle)
 
 router.delete('/order', isAuthenticadet, new RemoveOrderController().handle)
+
+router.post('/order/add', isAuthenticadet, new AddItemController().handle)
+
 
 export { router };
 
