@@ -8,6 +8,7 @@ import { ListCategoryController } from "./controllers/category/ListCategoryContr
 import { CreateProductController } from "./controllers/product/CreateProductController";
 import { ListByCategoryController } from "./controllers/product/ListByCategoryController";
 import { CreateOrderController } from "./controllers/order/CreateOrderController";
+import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
 import { isAuthenticadet } from "./middleware/isAuthenticadet";
 
 import uploadConfig from './config/multer';
@@ -38,8 +39,9 @@ router.post('/product', isAuthenticadet, upload.single('file'), new CreateProduc
 router.get('/category/product', isAuthenticadet, new ListByCategoryController().handle)
 
 //-- ROTAS ORDER
-
 router.post('/order', isAuthenticadet, new CreateOrderController().handle)
+
+router.delete('/order', isAuthenticadet, new RemoveOrderController().handle)
 
 export { router };
 
