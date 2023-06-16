@@ -1,10 +1,10 @@
 
+import React from "react";
+
 export default function Home() {
   return (
-    <>
       <div>
-        <h1>Mikael</h1>
+        <h1>Sujeito Pizza </h1>
       </div>
-    </>
   )
 }
