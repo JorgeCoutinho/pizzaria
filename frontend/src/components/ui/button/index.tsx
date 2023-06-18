@@ -1,0 +1,23 @@
+import { ReactNode, ButtonHTMLAttributes } from 'react';
+import styles from './styles.module.scss';
+import { FaSpinner } from 'react-icons/fa'
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    loading?: boolean;
+    childrean: ReactNode;
+}
+
+export function Button({loading, childrean, ...rest}: ButtonProps){
+    return(
+        <button className={styles.button} disabled={loading} {...rest} >
+
+            {loading? (
+                <FaSpinner color='#FFF' size={16} />
+            ): (
+                <a href="" className={styles.buttonText}>
+                {childrean}
+            </a>
+            )}
+        </button>
+    )
+}
