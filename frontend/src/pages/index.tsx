@@ -16,28 +16,34 @@ export default function Home() {
 
       <div className={style.containerCenter}>
         <Image src={logoImg} alt="Logo Sujeito Pizzaria" />
+
+
+
+        <div className={style.login} >
+          <form>
+
+            <Input
+              placeholder="Digite seu email"
+              type="text"
+            />
+            <Input
+              placeholder="Digite seu senha"
+              type="password"
+            />
+
+            <Button type="submit"
+              loading={false}
+              childrean={"Acessar"}>
+              Acessar
+            </Button>
+
+          </form>
+
+          <a className={style.text} >Não possui uma conta? Cadastra-se</a>
+        </div>
       </div>
 
 
-      <div className={style.login} >
-        <form>
-          <Input
-            placeholder="Digite seu email"
-            type="text"
-          />
-          <Input
-            placeholder="Digite seu senha"
-            type="password"
-          />
-
-          <Button type="submit"
-            loading={false}
-            childrean={"Cadastrar"}>
-            
-          </Button>
-
-        </form>
-      </div>
     </>
   )
 }
